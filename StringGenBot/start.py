@@ -12,22 +12,23 @@ async def start(bot: Client, msg: Message):
     me2 = (await bot.get_me()).mention
     await bot.send_message(
         chat_id=msg.chat.id,
-        text=f"""𝐇𝐞𝐲 {msg.from_user.mention}🍷,
+        text=f"""ʜᴇʏ {msg.from_user.mention}
 
-ɪ ᴀᴍ {me2},
-ᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.
-ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.
-ɴᴏ ᴀɴʏ ᴇʀʀᴏʀ
+ꜱᴀʏᴀ {me2}.
+ᴅɪ ʙᴜᴀᴛ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇɴɢᴀᴍʙɪʟ sᴛʀɪɴɢ sᴇssɪᴏɴ ᴅᴇɴɢᴀɴ ᴍᴜᴅᴀʜ ᴅᴀɴ ᴀᴍᴀɴ
+•––––––––☆–––––––––•
+sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍᴜʟᴀɪ ᴍᴇɴɢᴀᴍʙɪʟ sᴛʀɪɴɢ sᴇssɪᴏɴ !
+•––––––––☆–––––––––•
 
-𝐌𝐚𝐝𝐞 𝐁𝐲  : [𝗡𝗲𝗶𝗺𝗮𝗻](tg://user?id={OWNER_ID}) !""",
+ᴅɪʙᴜᴀᴛ ᴏʟᴇʜ  : [𝚍𝚊𝚛𝚔𝚒𝚎𝚣](tg://user?id={OWNER_ID}) !""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(text="⚡𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄 𝐒𝐓𝐑𝐈𝐍𝐆⚡", callback_data="generate")
                 ],
                 [
-                    InlineKeyboardButton("❣️ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 ❣️", url="https://t.me/Neiman_X_Support"),
-                    InlineKeyboardButton("🥀 𝐎𝐟𝐟𝐢𝐜𝐞 🥀", url="https://t.me/DETECTED_09")
+                    InlineKeyboardButton("❣️ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 ❣️", url="t.me/wibuAnim3"),
+                    InlineKeyboardButton("🥀 𝐎𝐟𝐟𝐢𝐜𝐞 🥀", url="t.me/DarkiezZzz")
                 ]
             ]
         ),
