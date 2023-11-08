@@ -34,24 +34,24 @@ import config
 
 
 
-ask_ques = "**» ▷ ᴄʜᴏᴏsᴇ ᴛʜᴇ sᴛʀɪɴɢ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ✔️ : :**"
+ask_ques = "**» ▷ pilih string yang Anda inginkan ✔️ : :**"
 buttons_ques = [
     [
-        InlineKeyboardButton("⚡𝗣𝗬𝗥𝗢𝗚𝗥𝗔𝗠⚡", callback_data="pyrogram1"),
-        InlineKeyboardButton("🪴𝗣𝗬𝗥𝗢𝗚𝗥𝗔𝗠 𝗩2🪴", callback_data="pyrogram"),
+        InlineKeyboardButton("PYROGRAM", callback_data="pyrogram1"),
+        InlineKeyboardButton("PYROGRAM V2", callback_data="pyrogram"),
     ],
     [
-        InlineKeyboardButton("🍷𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡🍷", callback_data="telethon"),
+        InlineKeyboardButton("TELETHON", callback_data="telethon"),
     ],
     [
-        InlineKeyboardButton("✨𝗣𝗬𝗥𝗢𝗚𝗥𝗔𝗠 𝗕𝗢𝗧✨", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("⚡𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡 𝗕𝗢𝗧⚡", callback_data="telethon_bot"),
+        InlineKeyboardButton("PYROGRAM BOT", callback_data="pyrogram_bot"),
+        InlineKeyboardButton("TELETHON BOT", callback_data="telethon_bot"),
     ],
 ]
 
 gen_button = [
     [
-        InlineKeyboardButton(text="⚡ 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗘 𝗦𝗧𝗥𝗜𝗡𝗚 ⚡", callback_data="generate")
+        InlineKeyboardButton(text="GENERATE STRING", callback_data="generate")
     ]
 ]
 
@@ -65,16 +65,16 @@ async def main(_, msg):
 
 async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: bool = False, is_bot: bool = False):
     if telethon:
-        ty = "🍷𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡🍷"
+        ty = "TELETHON"
     else:
-        ty = "⚡𝗣𝗬𝗥𝗢𝗚𝗥𝗔𝗠⚡"
+        ty = "⚡PYROGRAM"
         if not old_pyro:
-            ty += " 𝐕2"
+            ty += " V2"
     if is_bot:
-        ty += " 𝗕𝗢𝗧"
-    await msg.reply(f"» 𝗧𝗥𝗬𝗜𝗡𝗚 𝗧𝗢 𝗦𝗧𝗔𝗥𝗧 **{ty}** 𝗦𝗘𝗦𝗦𝗜𝗢𝗡 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥...")
+        ty += " BOT"
+    await msg.reply(f"» Mencoba untuk memulai‌‌ **{ty}** session generator...")
     user_id = msg.chat.id
-    api_id_msg = await bot.ask(user_id, "sᴇɴᴅ ʏᴏᴜʀ **𝗔𝗣𝗜_𝗜𝗗** ᴛᴏ ᴘʀᴏᴄᴇᴇᴅ.\n\nᴄʟɪᴄᴋ ᴏɴ /skip ғᴏʀ ᴜsɪɴɢ ʙᴏᴛ ᴀᴘɪ.", filters=filters.text)
+    api_id_msg = await bot.ask(user_id, "kirim ``API_ID` untuk melanjutkan.\n\nklik /skip untuk menggunakan bot api.", filters=filters.text)
     if await cancelled(api_id_msg):
         return
     if api_id_msg.text == "/skip":
@@ -84,24 +84,24 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         try:
             api_id = int(api_id_msg.text)
         except ValueError:
-            await api_id_msg.reply("**𝗔𝗣𝗜_𝗜𝗗** ᴍᴜsᴛ ʙᴇ ᴀɴ ɪɴᴛᴇɢᴇʀ, sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
+            await api_id_msg.reply("`API ID` harus bilangan bulat, mulai buat sesi Anda lagi.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
             return
-        api_hash_msg = await bot.ask(user_id, "» ɴᴏᴡ sᴇɴᴅ ʏᴏᴜʀ **𝗔𝗣𝗜_𝗛𝗔𝗦𝗛**ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ.", filters=filters.text)
+        api_hash_msg = await bot.ask(user_id, "» sekarang kirimkan `API_HASH` untuk melanjutkan.", filters=filters.text)
         if await cancelled(api_hash_msg):
             return
         api_hash = api_hash_msg.text
     if not is_bot:
-        t = "» sᴇɴᴅ ʏᴏᴜʀ **ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ** ᴡɪᴛʜ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ \n𝗘𝗫𝗔𝗠𝗣𝗟𝗘 : `+910000000000`'"
+        t = "» kirimkan `PHONE NUMBER` dengan kode negara yang ingin Anda buat string session \nCONTOH : `+910000000000`'"
     else:
-        t = "ᴩʟᴇᴀsᴇ sᴇɴᴅ ʏᴏᴜʀ **ʙᴏᴛ_ᴛᴏᴋᴇɴ** ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ.\nᴇxᴀᴍᴩʟᴇ : `5432198765:abcdanonymousterabaaplol`'"
+        t = "tolong kirim `BOT_TOKEN` untuk melanjutkan.\nCONTOH : `5432198765:abcdanonymousterabaaplol`'"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
     if await cancelled(phone_number_msg):
         return
     phone_number = phone_number_msg.text
     if not is_bot:
-        await msg.reply("» ᴛʀʏɪɴɢ ᴛᴏ sᴇɴᴅ ᴏᴛᴩ ᴀᴛ ᴛʜᴇ ɢɪᴠᴇɴ ɴᴜᴍʙᴇʀ...")
+        await msg.reply("» mencoba mengirim otp ke nomor yang diberikan...")
     else:
-        await msg.reply("» ᴛʀʏɪɴɢ ᴛᴏ ʟᴏɢɪɴ ᴠɪᴀ ʙᴏᴛ ᴛᴏᴋᴇɴ...")
+        await msg.reply("» mencoba masuk melalui token bot...")
     if telethon and is_bot:
         client = TelegramClient(StringSession(), api_id, api_hash)
     elif telethon:
