@@ -91,7 +91,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
             return
         api_hash = api_hash_msg.text
     if not is_bot:
-        t = "» kirimkan `PHONE NUMBER` dengan kode negara yang ingin Anda buat string session \nCONTOH : `+910000000000`'"
+        t = "» kirimkan `PHONE_NUMBER` dengan kode negara yang ingin Anda buat string session \nCONTOH : `+910000000000`'"
     else:
         t = "tolong kirim `BOT_TOKEN` untuk melanjutkan.\nCONTOH : `5432198765:abcdanonymousterabaaplol`'"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
