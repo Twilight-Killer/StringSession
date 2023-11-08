@@ -41,7 +41,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 )
 async def executor(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**ᴡʜᴀᴛ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴇᴄᴜᴛᴇ ʙᴀʙʏ ?**")
+        return await edit_or_reply(message, text="**Apa yang ingin kamu eksekusi baby ?**")
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
     except IndexError:
@@ -68,7 +68,7 @@ async def executor(client, message):
     elif stdout:
         evaluation = stdout
     else:
-        evaluation = "Success"
+        evaluation = "Sukses"
     final_output = f"**OUTPUT**:\n```{evaluation.strip()}```"
     if len(final_output) > 4096:
         filename = "output.txt"
@@ -141,7 +141,7 @@ async def forceclose_command(_, CallbackQuery):
 )
 async def shellrunner(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**ᴇxᴀᴍᴩʟᴇ :**\n/sh git pull")
+        return await edit_or_reply(message, text="**Contoh :**\n/sh git pull")
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
