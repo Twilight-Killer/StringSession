@@ -34,7 +34,7 @@ import config
 
 
 
-ask_ques = "**» ▷ pilih string yang Anda inginkan ✔️ : :**"
+ask_ques = "**» ▷Pilih string yang kamu inginkan :**"
 buttons_ques = [
     [
         InlineKeyboardButton("PYROGRAM", callback_data="pyrogram1"),
