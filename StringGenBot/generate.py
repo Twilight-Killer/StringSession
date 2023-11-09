@@ -74,7 +74,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         ty += " BOT"
     await msg.reply(f"» Memulai‌‌ **{ty}** session generator...")
     user_id = msg.chat.id
-    api_id_msg = await bot.ask(user_id, "kirim ``API_ID` untuk melanjutkan.\n\nklik /skip untuk menggunakan bot api.", filters=filters.text)
+    api_id_msg = await bot.ask(user_id, "kirim ``API_ID` untuk melanjutkan.\n\nKlik /skip untuk menggunakan bot api.", filters=filters.text)
     if await cancelled(api_id_msg):
         return
     if api_id_msg.text == "/skip":
@@ -84,7 +84,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         try:
             api_id = int(api_id_msg.text)
         except ValueError:
-            await api_id_msg.reply("`API ID` harus bilangan bulat, mulai buat sesi Anda lagi.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
+            await api_id_msg.reply("`API ID` harus bilangan angka, mulai buat sesi Anda lagi.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
             return
         api_hash_msg = await bot.ask(user_id, "» Kirim `API_HASH` untuk melanjutkan.", filters=filters.text)
         if await cancelled(api_hash_msg):
