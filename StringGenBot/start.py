@@ -20,15 +20,15 @@ async def start(bot: Client, msg: Message):
 sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍᴜʟᴀɪ ᴍᴇɴɢᴀᴍʙɪʟ sᴛʀɪɴɢ sᴇssɪᴏɴ !
 •––––––––☆–––––––––•
 
-ᴅɪʙᴜᴀᴛ ᴏʟᴇʜ  : [𝚍𝚊𝚛𝚔𝚒𝚎𝚣](tg://user?id={OWNER_ID}) !""",
+ᴅɪʙᴜᴀᴛ ᴏʟᴇʜ  : [𝚍𝚊𝚛𝚔𝚒𝚎𝚣](tg://user?id={OWNER_ID}) """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="⚡𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄 𝐒𝐓𝐑𝐈𝐍𝐆⚡", callback_data="generate")
+                    InlineKeyboardButton(text="GENERATE STRING", callback_data="generate")
                 ],
                 [
-                    InlineKeyboardButton("❣️ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 ❣️", url="t.me/wibuAnim3"),
-                    InlineKeyboardButton("🥀 𝐎𝐟𝐟𝐢𝐜𝐞 🥀", url="t.me/DarkiezZzz")
+                    InlineKeyboardButton("Support", url="t.me/wibuAnim3"),
+                    InlineKeyboardButton("Owner", url="t.me/DarkiezZzz")
                 ]
             ]
         ),
