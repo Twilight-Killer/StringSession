@@ -24,11 +24,11 @@ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="GENERATE STRING", callback_data="generate")
+                    InlineKeyboardButton(text="ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛʀɪɴɢ", callback_data="generate")
                 ],
                 [
-                    InlineKeyboardButton("Support", url="t.me/wibuAnim3"),
-                    InlineKeyboardButton("Owner", url="t.me/DarkiezZzz")
+                    InlineKeyboardButton("ɢʀᴏᴜᴘ", url="t.me/HaoTogelLivedraw"),
+                    InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url="t.me/haotogel_result")
                 ]
             ]
         ),
