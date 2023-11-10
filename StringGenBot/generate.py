@@ -37,21 +37,21 @@ import config
 ask_ques = "**» ▷Pilih string yang kamu inginkan :**"
 buttons_ques = [
     [
-        InlineKeyboardButton("PYROGRAM", callback_data="pyrogram1"),
-        InlineKeyboardButton("PYROGRAM V2", callback_data="pyrogram"),
+        InlineKeyboardButton("ᴘʏʀᴏɢʀᴀᴍ", callback_data="pyrogram1"),
+        InlineKeyboardButton("ᴘʏʀᴏɢʀᴀᴍ ᴠ2", callback_data="pyrogram"),
     ],
     [
-        InlineKeyboardButton("TELETHON", callback_data="telethon"),
+        InlineKeyboardButton("ᴛᴇʟᴇᴛʜᴏɴ", callback_data="telethon"),
     ],
     [
-        InlineKeyboardButton("PYROGRAM BOT", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("TELETHON BOT", callback_data="telethon_bot"),
+        InlineKeyboardButton("ᴘʏʀᴏɢʀᴀᴍ ʙᴏᴛ", callback_data="pyrogram_bot"),
+        InlineKeyboardButton("ᴛᴇʟᴇᴛʜᴏɴ ʙᴏᴛ", callback_data="telethon_bot"),
     ],
 ]
 
 gen_button = [
     [
-        InlineKeyboardButton(text="GENERATE STRING", callback_data="generate")
+        InlineKeyboardButton(text="ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛʀɪɴɢ", callback_data="generate")
     ]
 ]
 
@@ -65,14 +65,14 @@ async def main(_, msg):
 
 async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: bool = False, is_bot: bool = False):
     if telethon:
-        ty = "TELETHON"
+        ty = "ᴛᴇʟᴇᴛʜᴏɴ"
     else:
-        ty = "PYROGRAM"
+        ty = "ᴘʏʀᴏɢʀᴀᴍ"
         if not old_pyro:
-            ty += " V2"
+            ty += " ᴠ2"
     if is_bot:
-        ty += " BOT"
-    await msg.reply(f"» Memulai‌‌ **{ty}** session generate...")
+        ty += " ʙᴏᴛ"
+    await msg.reply(f"» ᴍᴇᴍᴜʟᴀɪ **{ty}** ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴀᴛᴇ...")
     user_id = msg.chat.id
     api_id_msg = await bot.ask(user_id, "Sekarang kirim `API_ID` \n\nKlik /skip untuk menggunakan bot api.", filters=filters.text)
     if await cancelled(api_id_msg):
