@@ -65,13 +65,13 @@ async def main(_, msg):
 
 async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: bool = False, is_bot: bool = False):
     if telethon:
-        ty = "ᴛᴇʟᴇᴛʜᴏɴ"
+        ty = "telethon"
     else:
-        ty = "ᴘʏʀᴏɢʀᴀᴍ"
+        ty = "pyrogram"
         if not old_pyro:
-            ty += " ᴠ2"
+            ty += " v2"
     if is_bot:
-        ty += " ʙᴏᴛ"
+        ty += " bot"
     await msg.reply(f"» ᴍᴇᴍᴜʟᴀɪ **{ty}** ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴀᴛᴇ...")
     user_id = msg.chat.id
     api_id_msg = await bot.ask(user_id, "Sekarang kirim `API_ID` \n\nKlik /skip untuk menggunakan bot api.", filters=filters.text)
@@ -142,7 +142,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                 await client.sign_in(phone_number, phone_code, password=None)
             else:
                 await client.sign_in(phone_number, code.phone_code_hash, phone_code)
-        except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1):
+        except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1, TypeError):
             await msg.reply("» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs **ᴡʀᴏɴɢ.**\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", reply_markup=InlineKeyboardMarkup(gen_button))
             return
         except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
