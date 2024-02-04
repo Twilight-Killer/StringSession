@@ -86,12 +86,12 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         except ValueError:
             await api_id_msg.reply("`API ID` harus bilangan angka, mulai buat sesi Kamu lagi.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
             return
-        api_hash_msg = await bot.ask(user_id, "» Sekarang kirim `API_HASH` ", filters=filters.text)
+        api_hash_msg = await bot.ask(user_id, "Sekarang kirim `API_HASH` ", filters=filters.text)
         if await cancelled(api_hash_msg):
             return
         api_hash = api_hash_msg.text
     if not is_bot:
-        t = "» Kirim `PHONE_NUMBER` dengan kode negara yang ingin Kamu buat string session \nCONTOH : `+910000000000`'"
+        t = "Kirim `PHONE_NUMBER` dengan kode negara yang ingin Kamu buat string session \nCONTOH : `+910000000000`'"
     else:
         t = "Kirim `BOT_TOKEN` untuk melanjutkan.\nCONTOH : `5432198765:abcdanonymousterabaaplol`'"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
@@ -99,9 +99,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         return
     phone_number = phone_number_msg.text
     if not is_bot:
-        await msg.reply("» Mengirim kode OTP...")
+        await msg.reply("Mengirim kode OTP...")
     else:
-        await msg.reply("» Masuk melalui token bot...")
+        await msg.reply("Masuk melalui token bot...")
     if telethon and is_bot:
         client = TelegramClient(StringSession(), api_id, api_hash)
     elif telethon:
@@ -163,7 +163,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                 if await cancelled(api_id_msg):
                     return
             except (PasswordHashInvalid, PasswordHashInvalidError, PasswordHashInvalid1, TypeError):
-                await two_step_msg.reply("» Verifikasi dua langkah yang kamu kirimkan salah.\n\nMulai ulang string session dari awal.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
+                await two_step_msg.reply("Verifikasi dua langkah yang kamu kirimkan salah.\n\nMulai ulang string session dari awal.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
                 return
     else:
         if telethon:
