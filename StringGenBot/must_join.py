@@ -20,11 +20,11 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply_photo(
-                    photo="https://te.legra.ph/file/a35aeb698a07c50f8dfc3.jpg", caption=f"» ᴋᴀᴍᴜ ʜᴀʀᴜꜱ ʙᴇʀɢᴀʙᴜɴɢ ᴅᴇɴɢᴀɴ ɢʀᴜᴘ ᴀɢᴀʀ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴀʏᴀ [𝐎𝐅𝐅𝐈𝐂𝐄]({link}). ꜱᴇꜱᴜᴅᴀʜ ʙᴇʀɢᴀʙᴜɴɢ ꜱɪʟᴀʜᴋᴀɴ ꜱᴛᴀʀᴛ ꜱᴀʏᴀ ᴋᴇᴍʙᴀʟɪ !",
+                    photo="https://te.legra.ph/file/a35aeb698a07c50f8dfc3.jpg", caption=f"Kamu harus bergabung dengan grup agar dapat menggunakan saya [OFFICE]({link}). sesudah bergabung silahkan start saya kembali!",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("</> 𝐎𝐅𝐅𝐈𝐂𝐄", url=link),
+                                InlineKeyboardButton("</> OFFICE", url=link),
                             ]
                         ]
                     )
