@@ -120,7 +120,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                 code = await client.send_code_request(phone_number)
             else:
                 code = await client.send_code(phone_number)
-    except (ApiIdInvalid, ApiIdInvalidError, ApiIdInvalid1):
+    except (ApiIdInvalid, ApiIdInvalidError, ApiIdInvalid1, TypeError):
         await msg.reply("» ʏᴏᴜʀ **ᴀᴩɪ_ɪᴅ** ᴀɴᴅ **ᴀᴩɪ_ʜᴀsʜ** ᴄᴏᴍʙɪɴᴀᴛɪᴏɴ ᴅᴏᴇsɴ'ᴛ ᴍᴀᴛᴄʜ ᴡɪᴛʜ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴩᴩs sʏsᴛᴇᴍ. \n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", reply_markup=InlineKeyboardMarkup(gen_button))
         return
     except (PhoneNumberInvalid, PhoneNumberInvalidError, PhoneNumberInvalid1, TypeError):
@@ -145,10 +145,10 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1, TypeError):
             await msg.reply("» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs **ᴡʀᴏɴɢ.**\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", reply_markup=InlineKeyboardMarkup(gen_button))
             return
-        except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
+        except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1, TypeError):
             await msg.reply("» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs **ᴇxᴩɪʀᴇᴅ.**\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", reply_markup=InlineKeyboardMarkup(gen_button))
             return
-        except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1):
+        except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1, TypeError):
             try:
                 two_step_msg = await bot.ask(user_id, "» Kirimkan kode Verifikasi dua langkah kamu :", filters=filters.text, timeout=300)
             except TimeoutError:
@@ -162,7 +162,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                     await client.check_password(password=password)
                 if await cancelled(api_id_msg):
                     return
-            except (PasswordHashInvalid, PasswordHashInvalidError, PasswordHashInvalid1):
+            except (PasswordHashInvalid, PasswordHashInvalidError, PasswordHashInvalid1, TypeError):
                 await two_step_msg.reply("» Verifikasi dua langkah yang kamu kirimkan salah.\n\nMulai ulang string session dari awal.", quote=True, reply_markup=InlineKeyboardMarkup(gen_button))
                 return
     else:
